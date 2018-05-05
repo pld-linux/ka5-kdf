@@ -1,7 +1,7 @@
 %define		kdeappsver	18.04.0
 %define		qtver		5.3.2
 %define		kaname		kdf
-Summary:	KDE free disk utility
+Summary:	KDE free disk space utility
 Name:		ka5-%{kaname}
 Version:	18.04.0
 Release:	1
@@ -21,7 +21,7 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-KDE free disk utility.
+KDE free disk space utility.
 
 %prep
 %setup -q -n %{kaname}-%{version}
