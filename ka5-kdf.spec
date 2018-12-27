@@ -1,18 +1,29 @@
-%define		kdeappsver	18.04.0
-%define		qtver		5.3.2
+%define		kdeappsver	18.12.0
+%define		qtver		5.9.0
 %define		kaname		kdf
 Summary:	KDE free disk space utility
 Name:		ka5-%{kaname}
-Version:	18.04.0
+Version:	18.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9a933c2f13328fd7ae01bcada43f0646
+# Source0-md5:	f5c6377b5c51368c91f8a2af7995923c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	gettext-devel
+BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
+BuildRequires:	kf5-kcmutils-devel
+BuildRequires:	kf5-kconfigwidgets-devel
+BuildRequires:	kf5-kcoreaddons-devel
+BuildRequires:	kf5-kdoctools-devel
+BuildRequires:	kf5-ki18n-devel
+BuildRequires:	kf5-kiconthemes-devel
+BuildRequires:	kf5-kio-devel
+BuildRequires:	kf5-knotifications-devel
+BuildRequires:	kf5-kwidgetsaddons-devel
+BuildRequires:	kf5-kxmlgui-devel
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
@@ -44,11 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
+/etc/xdg/kdf.categories
 %attr(755,root,root) %{_bindir}/kdf
 %attr(755,root,root) %{_bindir}/kwikdisk
 %ghost %{_libdir}/libkdfprivate.so.18
@@ -73,3 +82,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/64x64/apps/kwikdisk.png
 %{_datadir}/kservices5/kcmdf.desktop
 %{_datadir}/kxmlgui5/kdf
+%{_datadir}/metainfo/org.kde.kdf.appdata.xml
