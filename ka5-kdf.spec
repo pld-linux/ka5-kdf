@@ -1,15 +1,15 @@
-%define		kdeappsver	19.04.1
+%define		kdeappsver	20.12.3
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kdf
 Summary:	KDE free disk space utility
 Name:		ka5-%{kaname}
-Version:	19.04.1
+Version:	20.12.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	139f8cc6e65f9652fa860ad1c472ad14
+Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	bd34504fe4cf90847cdaf190726dcd48
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -53,7 +53,7 @@ cd build
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
-rm -rf $RPM_BUILD_ROOT%{_kdedocdir}/sr
+rm -rf $RPM_BUILD_ROOT%{_kdedocdir}/{ko,sr}
 %find_lang %{kaname} --all-name --with-kde
 
 %clean
@@ -61,11 +61,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-/etc/xdg/kdf.categories
 %attr(755,root,root) %{_bindir}/kdf
 %attr(755,root,root) %{_bindir}/kwikdisk
-%ghost %{_libdir}/libkdfprivate.so.19
-%{_libdir}/libkdfprivate.so.19.*.*
+%ghost %{_libdir}/libkdfprivate.so.20
+%{_libdir}/libkdfprivate.so.20.*.*
 %{_libdir}/qt5/plugins/libkcm_kdf.so
 %{_desktopdir}/org.kde.kdf.desktop
 %{_desktopdir}/org.kde.kwikdisk.desktop
@@ -87,3 +86,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/kcmdf.desktop
 %{_datadir}/kxmlgui5/kdf
 %{_datadir}/metainfo/org.kde.kdf.appdata.xml
+%{_datadir}/qlogging-categories5/kdf.categories
