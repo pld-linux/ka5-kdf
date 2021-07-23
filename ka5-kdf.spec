@@ -36,6 +36,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KDE free disk space utility.
 
+%description -l pl.UTF-8
+Program użytkowy KDE do pokazywania zajętości dysku.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
