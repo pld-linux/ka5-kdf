@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kdf
 Summary:	KDE free disk space utility
 Name:		ka5-%{kaname}
-Version:	21.12.3
+Version:	22.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9562ccef81e6062e4449c139299becfb
+# Source0-md5:	e56624ba8f52624eaa8590ddc4e60994
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kdf
 %attr(755,root,root) %{_bindir}/kwikdisk
-%ghost %{_libdir}/libkdfprivate.so.21
+%ghost %{_libdir}/libkdfprivate.so.22
 %{_libdir}/libkdfprivate.so.*.*.*
 %{_libdir}/qt5/plugins/libkcm_kdf.so
 %{_desktopdir}/org.kde.kdf.desktop
